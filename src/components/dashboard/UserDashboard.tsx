@@ -6,8 +6,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { 
   Users, FileText, Briefcase, Plus, Settings2, Calendar, Activity, Bell, 
-  Mail, Building2, ListTodo, CalendarClock, ClipboardList, Check, X, TrendingUp, TrendingDown, Minus, User
+  Mail, Building2, ListTodo, CalendarClock, ClipboardList, Check, X, TrendingUp, TrendingDown, Minus, User, Search
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { useUserRole } from "@/hooks/useUserRole";
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -1749,7 +1750,16 @@ const UserDashboard = ({ hideHeader = false }: UserDashboardProps) => {
   return (
     <div className="px-2 sm:px-4 py-4 space-y-4 w-full overflow-x-hidden" ref={containerRef}>
       {/* Customize Controls - shown at top when hideHeader is true, otherwise part of header */}
-      <div className="flex items-center justify-end flex-wrap gap-2">
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        {/* Global Search */}
+        <div className="relative flex-1 max-w-md min-w-[200px]">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            type="search"
+            placeholder="Search leads, contacts, deals, accounts..."
+            className="pl-9 w-full"
+          />
+        </div>
         <div className="flex gap-2 flex-shrink-0 items-center">
           {isResizeMode ? (
             <>
