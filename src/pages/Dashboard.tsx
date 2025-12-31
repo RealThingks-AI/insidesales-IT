@@ -149,7 +149,7 @@ const Dashboard = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 min-h-0 overflow-auto">
+      <div className={`flex-1 min-h-0 ${currentView === "analytics" ? "overflow-auto" : "overflow-hidden"}`}>
         {currentView === "analytics" ? (
           <div className="p-6 space-y-8">
             <YearlyRevenueSummary selectedYear={selectedYear} />
