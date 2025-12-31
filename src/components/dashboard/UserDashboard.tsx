@@ -28,6 +28,7 @@ import { AccountModal } from "@/components/AccountModal";
 import { useTasks } from "@/hooks/useTasks";
 import { Task } from "@/types/task";
 import { EmptyState } from "@/components/shared/EmptyState";
+import { GlobalSearch } from "./GlobalSearch";
 
 const GRID_COLS = 12;
 
@@ -1752,14 +1753,7 @@ const UserDashboard = ({ hideHeader = false }: UserDashboardProps) => {
       {/* Customize Controls - shown at top when hideHeader is true, otherwise part of header */}
       <div className="flex items-center justify-between flex-wrap gap-2">
         {/* Global Search */}
-        <div className="relative flex-1 max-w-md min-w-[200px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input
-            type="search"
-            placeholder="Search leads, contacts, deals, accounts..."
-            className="pl-9 w-full"
-          />
-        </div>
+        <GlobalSearch />
         <div className="flex gap-2 flex-shrink-0 items-center">
           {isResizeMode ? (
             <>
