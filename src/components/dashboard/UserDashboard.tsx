@@ -1688,9 +1688,9 @@ const UserDashboard = () => {
   };
 
   return (
-    <div className="w-full overflow-x-hidden" ref={containerRef}>
-      {/* Header with Search - Sticky */}
-      <div className="flex items-center justify-between flex-wrap gap-2 sticky top-0 z-40 bg-background py-4 px-2 sm:px-4 border-b border-border/50">
+    <div className="h-full flex flex-col overflow-hidden" ref={containerRef}>
+      {/* Header with Search - Fixed at top */}
+      <div className="flex-shrink-0 flex items-center justify-between flex-wrap gap-2 bg-background py-4 px-2 sm:px-4 border-b border-border/50">
         <div className="min-w-0 flex-1 max-w-sm">
           <GlobalSearch />
         </div>
@@ -1760,18 +1760,18 @@ const UserDashboard = () => {
         </div>
       </div>
 
-      {/* Resizable Grid Layout */}
-      <div className="px-2 sm:px-4 py-4 space-y-4">
-      <ResizableDashboard
-        isResizeMode={isResizeMode}
-        visibleWidgets={visibleWidgets}
-        widgetLayouts={widgetLayouts}
-        pendingWidgetChanges={pendingWidgetChanges}
-        onLayoutChange={handleLayoutChange}
-        onWidgetRemove={handleWidgetRemove}
-        renderWidget={renderWidget}
-        containerWidth={containerWidth}
-      />
+      {/* Scrollable Widgets Area */}
+      <div className="flex-1 min-h-0 overflow-auto px-2 sm:px-4 py-4">
+        <ResizableDashboard
+          isResizeMode={isResizeMode}
+          visibleWidgets={visibleWidgets}
+          widgetLayouts={widgetLayouts}
+          pendingWidgetChanges={pendingWidgetChanges}
+          onLayoutChange={handleLayoutChange}
+          onWidgetRemove={handleWidgetRemove}
+          renderWidget={renderWidget}
+          containerWidth={containerWidth}
+        />
       </div>
       
       {/* Modals */}

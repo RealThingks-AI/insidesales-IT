@@ -28,12 +28,12 @@ const FixedSidebarLayout = ({ children }: { children: React.ReactNode }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false); // Start collapsed
   
   return (
-    <div className="min-h-screen flex w-full">
+    <div className="h-screen flex w-full overflow-hidden">
       <div className="fixed top-0 left-0 z-50 h-full">
         <AppSidebar isFixed={true} isOpen={sidebarOpen} onToggle={setSidebarOpen} />
       </div>
       <main 
-        className="flex-1 bg-background min-h-screen"
+        className="flex-1 bg-background h-screen overflow-hidden"
         style={{ 
           marginLeft: sidebarOpen ? '200px' : '64px',
           transition: 'margin-left 300ms ease-in-out',
